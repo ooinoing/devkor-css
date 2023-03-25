@@ -1,0 +1,34 @@
+h1 {
+  color: rgb(0, 0, 0);
+  font-family:  Arial, sans-serif,  Helvetica;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+#box-layout {
+  padding: 10px;
+  margin: 10px;
+}
+
+#content-box {
+    background-color: greenyellow;
+}
+  
+.horizontal-lists {
+  padding: 10px;
+  margin: 10px;
+  font-family:  Arial, sans-serif;
+}
+
+.chapter-name{
+    font-weight: bold;
+    font-family:  Arial, sans-serif;
+}
+
+#current-chapter > div.chapter-name{
+  font-weight: bold;
+  color : red;
+  font-family:  Arial, sans-serif;
+}
+
