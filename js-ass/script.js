@@ -2,11 +2,12 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
+
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
+
 let guessCount = 1;
 let resetButton;
-
 
 const setGameOver = () => {
   guessField.disabled = true;
@@ -39,6 +40,7 @@ const collect = () => {
   lowOrHi.textContent = '';
   setGameOver();
 }
+
 const gameOver = () => {
   lastResult.textContent = '!!!GAME OVER!!!';
   lowOrHi.textContent = '';
@@ -51,6 +53,7 @@ const isLow = () => {
   lowOrHi.textContent = 'Last guess was too low!';
 
 }
+
 const isHigh = () => {
   lastResult.textContent = 'Wrong!';
   lastResult.style.backgroundColor = 'red';
@@ -58,19 +61,26 @@ const isHigh = () => {
 }
 
 const checkGuess = () => {
+
   const userGuess = Number(guessField.value);
   if (guessCount === 1) {
     guesses.textContent = 'Previous guesses: ';
   }
 
-
   guesses.textContent += userGuess + ' ';
-  // TODO 
-  // 입력값에 따라 , isLow, isHigh, Collect 등의 함수를 호출 
-  // guess Count가 10이 될 경우 game over
+  if (userGuess === randomNumber){
+    collect();
+  }else if(guessCount === 10){
+    gameOver();
+  }else if(userGuess < randomNumber){
+    isLow();
+  }else{
+    isHigh();
+  }
   guessCount++;
   guessField.value = '';
   guessField.focus();
+
 }
 
 guessSubmit.addEventListener('click', checkGuess);
